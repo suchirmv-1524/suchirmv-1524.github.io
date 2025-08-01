@@ -5,7 +5,7 @@ A place where I showcase my projects, achievements and ideas with the community.
 Feel free to browse through the website to know more about my skills, experiences and the things that I am passionate about in tech!
 
 ## Live Site  
-You can view the live site at: [suchirmvelpanur.github.io](https://suchirmvelpanur.github.io)
+You can view the live site at: [suchirmv-1524.github.io](https://suchirmv-1524.github.io)
 
 ## Features  
 This portfolio website includes the following sections/features:
