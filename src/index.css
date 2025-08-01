@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Terminal-themed Design System with Vibrant Neon Colors */
+
+@layer base {
+    :root {
+        /* Terminal Background Colors */
+        --terminal-bg: 0 0% 1%;
+        --terminal-surface: 0 0% 4%;
+        --terminal-border: 0 0% 12%;
+
+        /* Vibrant Neon Colors */
+        --neon-green: 142 71% 45%;
+        --neon-cyan: 191 91% 55%;
+        --neon-blue: 217 91% 60%;
+        --neon-purple: 271 91% 65%;
+        --neon-pink: 322 84% 60%;
+        --neon-orange: 30 100% 50%;
+        --neon-yellow: 54 91% 60%;
+        --neon-red: 30 100% 50%;
+
+        /* Text Colors */
+        --terminal-text: 0 0% 90%;
+        --terminal-prompt: var(--neon-green);
+        --terminal-comment: 0 0% 60%;
+        --terminal-highlight: var(--neon-cyan);
+
+        /* Component Colors */
+        --background: var(--terminal-bg);
+        --foreground: var(--terminal-text);
+        --card: var(--terminal-surface);
+        --card-foreground: var(--terminal-text);
+        --popover: var(--terminal-surface);
+        --popover-foreground: var(--terminal-text);
+        --primary: var(--neon-cyan);
+        --primary-foreground: var(--terminal-bg);
+        --secondary: var(--terminal-surface);
+        --secondary-foreground: var(--terminal-text);
+        --muted: var(--terminal-border);
+        --muted-foreground: var(--terminal-comment);
+        --accent: var(--neon-purple);
+        --accent-foreground: var(--terminal-bg);
+        --destructive: var(--neon-red);
+        --destructive-foreground: var(--terminal-text);
+        --border: var(--terminal-border);
+        --input: var(--terminal-border);
+        --ring: var(--neon-cyan);
+        --radius: 0.375rem;
+
+        /* Custom Properties */
+        --glow-intensity: 0 0 20px;
+        --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground font-mono;
+        font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+        line-height: 1.6;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-terminal-surface;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-neon-cyan/30 rounded-full;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-neon-cyan/50;
+    }
+}
+
+@layer components {
+
+    /* Terminal Window */
+    .terminal-window {
+        @apply bg-card border border-border rounded-lg p-6 shadow-2xl;
+        box-shadow:
+            0 0 30px hsl(var(--neon-cyan) / 0.1),
+            inset 0 1px 0 hsl(var(--border) / 0.2);
+    }
+
+    /* Terminal Header */
+    .terminal-header {
+        @apply flex items-center gap-2 mb-4 pb-4 border-b border-border;
+    }
+
+    .terminal-dot {
+        @apply w-3 h-3 rounded-full;
+    }
+
+    .terminal-dot.red {
+        @apply bg-neon-red shadow-[0_0_10px_hsl(var(--neon-red)/0.5)];
+    }
+
+    .terminal-dot.yellow {
+        @apply bg-neon-yellow shadow-[0_0_10px_hsl(var(--neon-yellow)/0.5)];
+    }
+
+    .terminal-dot.green {
+        @apply bg-neon-green shadow-[0_0_10px_hsl(var(--neon-green)/0.5)];
+    }
+
+    /* Terminal Prompt */
+    .terminal-prompt {
+        @apply text-neon-green font-semibold;
+        text-shadow: 0 0 10px hsl(var(--neon-green) / 0.5);
+    }
+
+    .terminal-path {
+        @apply text-neon-cyan;
+        text-shadow: 0 0 10px hsl(var(--neon-cyan) / 0.5);
+    }
+
+    .terminal-command {
+        @apply text-neon-purple;
+        text-shadow: 0 0 10px hsl(var(--neon-purple) / 0.5);
+    }
+
+    /* Neon Glow Effects */
+    .glow-green {
+        @apply text-neon-green;
+        text-shadow: 0 0 10px hsl(var(--neon-green) / 0.5);
+    }
+
+    .glow-cyan {
+        @apply text-neon-cyan;
+        text-shadow: 0 0 10px hsl(var(--neon-cyan) / 0.5);
+    }
+
+    .glow-blue {
+        @apply text-neon-blue;
+        text-shadow: 0 0 10px hsl(var(--neon-blue) / 0.5);
+    }
+
+    .glow-purple {
+        @apply text-neon-purple;
+        text-shadow: 0 0 10px hsl(var(--neon-purple) / 0.5);
+    }
+
+    .glow-pink {
+        @apply text-neon-pink;
+        text-shadow: 0 0 10px hsl(var(--neon-pink) / 0.5);
+    }
+
+    .glow-orange {
+        @apply text-neon-orange;
+        text-shadow: 0 0 10px hsl(var(--neon-orange) / 0.5);
+    }
+
+    .glow-yellow {
+        @apply text-neon-yellow;
+        text-shadow: 0 0 10px hsl(var(--neon-yellow) / 0.5);
+    }
+
+    /* Button Styles */
+    .neon-button {
+        @apply px-6 py-3 rounded-md font-medium transition-all duration-300;
+        @apply border-2 hover:scale-105 hover:shadow-xl;
+    }
+
+    .neon-button.cyan {
+        @apply border-neon-cyan text-neon-cyan hover:bg-neon-cyan hover:text-terminal-bg;
+        box-shadow: 0 0 20px hsl(var(--neon-cyan) / 0.3);
+    }
+
+    .neon-button.purple {
+        @apply border-neon-purple text-neon-purple hover:bg-neon-purple hover:text-terminal-bg;
+        box-shadow: 0 0 20px hsl(var(--neon-purple) / 0.3);
+    }
+
+    .neon-button.pink {
+        @apply border-neon-pink text-neon-pink hover:bg-neon-pink hover:text-terminal-bg;
+        box-shadow: 0 0 20px hsl(var(--neon-pink) / 0.3);
+    }
+
+    .neon-button.yellow {
+        @apply border-neon-yellow text-neon-yellow hover:bg-neon-yellow hover:text-terminal-bg;
+        box-shadow: 0 0 20px hsl(var(--neon-yellow) / 0.3);
+    }
+
+    /* Skill Progress Bars */
+    .skill-bar {
+        @apply h-3 bg-terminal-surface rounded-full overflow-hidden border border-border;
+    }
+
+    .skill-progress {
+        @apply h-full rounded-full transition-all duration-1000 ease-out;
+        background: linear-gradient(90deg,
+                hsl(var(--neon-cyan)),
+                hsl(var(--neon-green)));
+        box-shadow: 0 0 10px hsl(var(--neon-green) / 0.5);
+    }
+
+    /* Terminal Cursor */
+    .cursor-blink {
+        animation: cursor-blink 1s infinite;
+    }
+
+    @keyframes cursor-blink {
+
+        0%,
+        50% {
+            opacity: 1;
+            color: hsl(var(--neon-green));
+            text-shadow: 0 0 5px hsl(var(--neon-green)), 0 0 10px hsl(var(--neon-green));
+        }
+
+        51%,
+        100% {
+            opacity: 0.3;
+        }
+    }
+
+    /* Contact Cards */
+    .contact-card {
+        @apply terminal-window hover:scale-105 transition-transform duration-300;
+        @apply border-neon-cyan hover:border-neon-green;
+        box-shadow:
+            0 0 20px hsl(var(--neon-cyan) / 0.2),
+            inset 0 1px 0 hsl(var(--border) / 0.2);
+    }
+
+    .contact-card:hover {
+        box-shadow:
+            0 0 30px hsl(var(--neon-green) / 0.3),
+            inset 0 1px 0 hsl(var(--border) / 0.2);
+    }
+
+    /* Project Cards */
+    .project-card {
+        @apply terminal-window hover:scale-[1.02] transition-all duration-300;
+        @apply hover:border-neon-green;
+    }
+
+    .project-card:hover {
+        box-shadow:
+            0 0 25px hsl(var(--neon-green) / 0.2),
+            inset 0 1px 0 hsl(var(--border) / 0.2);
+    }
+
+    /* Section Dividers */
+    .section-divider {
+        @apply w-full h-px bg-gradient-to-r from-transparent via-neon-cyan to-transparent my-16;
+        box-shadow: 0 0 10px hsl(var(--neon-cyan) / 0.3);
+    }
+
+    /* Text Animations */
+    .typing-animation {
+        @apply overflow-hidden whitespace-nowrap;
+        animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+
+        to {
+            width: 100%;
+        }
+    }
+
+    @keyframes blink-caret {
+
+        from,
+        to {
+            border-color: transparent;
+        }
+
+        50% {
+            border-color: hsl(var(--neon-green));
+        }
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}
