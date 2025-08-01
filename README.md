@@ -5,7 +5,7 @@ A place where I showcase my projects, achievements and ideas with the community.
 Feel free to browse through the website to know more about my skills, experiences and the things that I am passionate about in tech!
 
 ## Live Site  
-You can view the live site at: [suchirmvelpanur.netlify.app](https://suchirmvelpanur.netlify.app)
+You can view the live site at: [suchirmvelpanur.github.io](https://suchirmvelpanur.github.io)
 
 ## Features  
 This portfolio website includes the following sections/features:
@@ -29,7 +29,7 @@ This website is built using the following technologies:
 - **shadcn/ui**: For styled UI components  
 - **Lucide Icons**: For clean and modern icons  
 - **Framer Motion**: For smooth animations and transitions  
-- **Deployment**: Hosted on Netlify
+- **Deployment**: Hosted on Github Pages
 
 ## Setup and Installation  
 To set up this project locally, follow these steps:
